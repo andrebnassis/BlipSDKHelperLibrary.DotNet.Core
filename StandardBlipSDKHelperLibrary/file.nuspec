@@ -2,11 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <!-- Required elements-->
-        <id>BlipSDKHelperLibrary</id>
+        <id>BlipSDKHelperLibrary.DotNet.Core</id>
         <version>$version$</version>
-        <description></description>
-        <authors></authors>
-
+        <description>A non-official library to help Blip users to create Messenger and BlipChat components.</description>
+        <authors>andrebnassis</authors>
+        <projectUrl>https://dev.azure.com/andrebnassis/_git/BlipSDKHelperLibrary</projectUrl>
+        <releaseNotes>dotnet Standard version of BlipSdkHelperLibrary</releaseNotes>
         <!-- Optional elements -->
         <!-- ... -->
     </metadata>
