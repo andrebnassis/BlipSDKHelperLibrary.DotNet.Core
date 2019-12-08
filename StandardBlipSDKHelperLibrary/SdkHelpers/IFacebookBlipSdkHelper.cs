@@ -22,7 +22,7 @@ namespace StandardBlipSDKHelperLibrary.SdkHelpers
     IVideoCreation,
     IWebLinkCreation
     {
-        //Task<IRestResponse> RegisterDomainToWhitelist(ISender sender, params string[] urls);
-        //Task<IRestResponse> RegisterDomainToWhitelist(ISender sender, List<string> urls);
+        Task<object> RegisterDomainToWhitelist(ISender sender, params string[] urls);
+        Task<object> RegisterDomainToWhitelist(ISender sender, List<string> urls);
     }
 }

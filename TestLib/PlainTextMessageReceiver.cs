@@ -172,6 +172,7 @@ namespace TestLib
             ////FACEBOOK
             //var document = _facebookDocumentService.CreateCarouselDocument(carousel);
 
+            var teste = await _facebookDocumentService.RegisterDomainToWhitelist(_sender, "https://www.youtube.com/");
 
             var list = new ListModel();
             list.HighlightFirstItem();
@@ -182,7 +183,7 @@ namespace TestLib
             list.GetItem(2).AddTextButton("ButtonText0", "ButtonValue0");
             list.AddItem("Title2", "Subtitle2", "", 2);
             list.GetItem(3).AddTextButton("ButtonText2", "ButtonValue2");
-            //list.GetItem(3).AddWebUrl("https://www.youtube.com/");
+            list.GetItem(3).AddWebUrl("https://www.youtube.com/");
 
             //IMPORTANT(only for List Creation case): 
             //If it is first time that you are using GetItem.AddWebUrl method, dont forget to call RegisterDomainToWhitelist function, passing the Urls as parameters.

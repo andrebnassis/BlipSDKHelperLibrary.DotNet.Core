@@ -1,4 +1,6 @@
-﻿using StandardBlipSDKHelperLibrary.FacebookNativeModel;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using StandardBlipSDKHelperLibrary.FacebookNativeModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,6 +54,7 @@ namespace StandardBlipSDKHelperLibrary.Models
             internal string Subtitle { get; set; }
             internal string ImageUrl { get; set; }
             internal string Url { get; set; }
+            [JsonConverter(typeof(StringEnumConverter))]
             internal WebviewSize WebviewHeightSettings { get; set; }
             internal int Order { get; set; }
             internal Item(string title, string subtitle, string url_image, int order)
