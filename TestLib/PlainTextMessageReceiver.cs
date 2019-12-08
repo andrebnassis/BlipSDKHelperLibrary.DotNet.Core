@@ -151,25 +151,46 @@ namespace TestLib
             //collection.Add(document2, 1);
             //var document = _facebookDocumentService.CreateCollectionOfDocuments(collection);
 
-            var carousel = new CarouselModel();
-            carousel.AddCard("Title, Subtitle, Image and Buttons", "Image goes up above, Title goes above, Subtitle goes here and button goes below.", "http://www.w3schools.com/css/img_fjords.jpg");
-            carousel.GetCard(0).AddLinkButton("Button1: Link", "http://www.w3schools.com/css/img_fjords.jpg", 1);
-            carousel.GetCard(0).AddTextButton("Button0: Text", "Value0");
 
-            carousel.AddCard("Title, Subtitle and Button", "Title goes above, Subtitle goes here and button goes below.", null);
-            carousel.GetCard(1).AddTextButton("Button0: Text", "Value0");
-            carousel.AddCard("Title, Subtitle and Image", "Image goes up above, Title goes above and Subtitle goes here.", "http://www.w3schools.com/css/img_fjords.jpg");
-            carousel.AddCard("Title, Image and Button: Image goes up above, Title goes here and button below", null, "http://www.w3schools.com/css/img_fjords.jpg");
-            carousel.GetCard(3).AddLinkButton("Button0: Link", "http://www.w3schools.com/css/img_fjords.jpg");
 
-            carousel.AddCard("Title and Image: Image goes up above, Title goes here", null, "http://www.w3schools.com/css/img_fjords.jpg");
-            carousel.AddCard("Title and Subtitle", "Title goes above, Subtitle goes here", null, 10);
-            carousel.AddCard("Title and Button: Title goes here, button goes below", null);
-            carousel.GetCard(6).AddLinkButton("Button0: Link", "http://www.facebook.com");
+            //var carousel = new CarouselModel();
+            //carousel.AddCard("Title, Subtitle, Image and Buttons", "Image goes up above, Title goes above, Subtitle goes here and button goes below.", "http://www.w3schools.com/css/img_fjords.jpg");
+            //carousel.GetCard(0).AddLinkButton("Button1: Link", "http://www.w3schools.com/css/img_fjords.jpg", 1);
+            //carousel.GetCard(0).AddTextButton("Button0: Text", "Value0");
+
+            //carousel.AddCard("Title, Subtitle and Button", "Title goes above, Subtitle goes here and button goes below.", null);
+            //carousel.GetCard(1).AddTextButton("Button0: Text", "Value0");
+            //carousel.AddCard("Title, Subtitle and Image", "Image goes up above, Title goes above and Subtitle goes here.", "http://www.w3schools.com/css/img_fjords.jpg");
+            //carousel.AddCard("Title, Image and Button: Image goes up above, Title goes here and button below", null, "http://www.w3schools.com/css/img_fjords.jpg");
+            //carousel.GetCard(3).AddLinkButton("Button0: Link", "http://www.w3schools.com/css/img_fjords.jpg");
+
+            //carousel.AddCard("Title and Image: Image goes up above, Title goes here", null, "http://www.w3schools.com/css/img_fjords.jpg");
+            //carousel.AddCard("Title and Subtitle", "Title goes above, Subtitle goes here", null, 10);
+            //carousel.AddCard("Title and Button: Title goes here, button goes below", null);
+            //carousel.GetCard(6).AddLinkButton("Button0: Link", "http://www.facebook.com");
+
+            ////FACEBOOK
+            //var document = _facebookDocumentService.CreateCarouselDocument(carousel);
+
+
+            var list = new ListModel();
+            list.HighlightFirstItem();
+            list.AddBottomTextButton("BottomButton Text", "BottomButtonValue");
+            list.AddItem("Title1", "Subtitle1", "https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg", 1);
+            list.AddItem("Title3", "Subtitle3", null, 3);
+            list.AddItem("Title0", "Subtitle0", "https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg");
+            list.GetItem(2).AddTextButton("ButtonText0", "ButtonValue0");
+            list.AddItem("Title2", "Subtitle2", "", 2);
+            list.GetItem(3).AddTextButton("ButtonText2", "ButtonValue2");
+            //list.GetItem(3).AddWebUrl("https://www.youtube.com/");
+
+            //IMPORTANT(only for List Creation case): 
+            //If it is first time that you are using GetItem.AddWebUrl method, dont forget to call RegisterDomainToWhitelist function, passing the Urls as parameters.
 
             //FACEBOOK
-            var document = _facebookDocumentService.CreateCarouselDocument(carousel);
-            
+            var document = _facebookDocumentService.CreateListDocument(list);
+
+
 
             //Trace.TraceInformation($"From: {message.From} \tContent: {message.Content}");
             await _sender.SendMessageAsync(document, message.From, cancellationToken);
