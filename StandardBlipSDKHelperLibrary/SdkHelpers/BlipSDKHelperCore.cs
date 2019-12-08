@@ -52,8 +52,7 @@ namespace StandardBlipSDKHelperLibrary.SdkHelpers
                 (tmp.Header.Value as MediaLink).Type = MediaType.Parse("image/*");
 
                 var buttons = cards[i].Buttons.OrderBy(c => c.Order).ToList();
-                buttons.RemoveAll(c => c.Type.Equals(ButtonType.Share));
-
+                
                 DocumentSelectOption[] tmp_buttons = new DocumentSelectOption[buttons.Count()];
                 if (buttons.Any())
                 {
@@ -347,15 +346,6 @@ namespace StandardBlipSDKHelperLibrary.SdkHelpers
                             button.Value.Value = GENERIC_CreateTextDocument(buttons[j].Value);
                             tmp_buttons[j] = button;
                         }
-                        else if (buttons[j].Type == Models.ButtonType.Share)
-                        {
-                            DocumentSelectOption button = new DocumentSelectOption();
-                            button.Order = button.Order;
-                            button.Label = new DocumentContainer();
-                            button.Label.Value = new WebLink() { Uri = new Uri("share:") };
-                            tmp_buttons[j] = button;
-                        }
-
                     }
 
                 }

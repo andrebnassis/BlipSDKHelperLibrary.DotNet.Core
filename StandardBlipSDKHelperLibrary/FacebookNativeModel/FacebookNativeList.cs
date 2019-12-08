@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +16,7 @@ namespace StandardBlipSDKHelperLibrary.FacebookNativeModel
             payload = new Payload();
         }
 
+        [JsonConverter(typeof(StringEnumConverter))]
         public FacebookNativeElementType type { get; set; }
         public Payload payload { get; set; }
 
@@ -46,8 +49,10 @@ namespace StandardBlipSDKHelperLibrary.FacebookNativeModel
                 elements = new List<ItemList>();
                 buttons = new List<ItemListButton>();
             }
-            
+
+            [JsonConverter(typeof(StringEnumConverter))]
             public FacebookNativeTemplateType template_type { get; set; }
+            [JsonConverter(typeof(StringEnumConverter))]
             public TopElementStyle top_element_style { get; set; }
             public List<ItemList> elements { get; set; }
             public List<ItemListButton> buttons { get; set; }
@@ -131,6 +136,7 @@ namespace StandardBlipSDKHelperLibrary.FacebookNativeModel
                 return this;
             }
             public string title { get; set; }
+            [JsonConverter(typeof(StringEnumConverter))]
             public FacebookNativeButtonType type { get; set; }
             public string payload { get; set; }
         }

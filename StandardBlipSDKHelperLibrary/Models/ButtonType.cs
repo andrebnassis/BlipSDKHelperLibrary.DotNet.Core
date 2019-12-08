@@ -13,7 +13,6 @@ namespace StandardBlipSDKHelperLibrary.Models
     internal enum ButtonType
     {
         Text,
-        Share,
         Location,
         Link,
         Call

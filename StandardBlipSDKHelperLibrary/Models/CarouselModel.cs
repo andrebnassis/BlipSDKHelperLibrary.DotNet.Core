@@ -8,7 +8,7 @@ namespace StandardBlipSDKHelperLibrary.Models
 {
     public class CarouselModel
     {
-        internal List<CarouselCard> Cards{ get; set; }
+        internal List<CarouselCard> Cards { get; set; }
 
         public CarouselModel()
         {
@@ -17,9 +17,9 @@ namespace StandardBlipSDKHelperLibrary.Models
 
         public void AddCard(string title, string subtitle, string urlImage = null, int order = 0)
         {
-            Cards.Add(new CarouselCard(title,subtitle, urlImage, order));
+            Cards.Add(new CarouselCard(title, subtitle, urlImage, order));
         }
-        
+
         public CarouselCard GetCard(int cardIndex)
         {
             return Cards[cardIndex];
@@ -30,12 +30,12 @@ namespace StandardBlipSDKHelperLibrary.Models
     public class CarouselCard
     {
         internal List<CarouselButton> Buttons { get; set; }
-        internal string Title {  get; set; }
+        internal string Title { get; set; }
         internal string Subtitle { get; set; }
         internal string UrlImage { get; set; }
         internal int Order { get; set; }
 
-        internal CarouselCard(string title, string subtitle, string urlImage, int order = 0) 
+        internal CarouselCard(string title, string subtitle, string urlImage, int order = 0)
         {
             Title = title;
             Subtitle = subtitle;
@@ -44,7 +44,7 @@ namespace StandardBlipSDKHelperLibrary.Models
             Buttons = new List<CarouselButton>();
 
         }
-        
+
         public void AddTextButton(string text, string value, int order = 0)
         {
             Buttons.Add(new CarouselButton().ToTextButton(text, value, order));
@@ -54,12 +54,6 @@ namespace StandardBlipSDKHelperLibrary.Models
         {
             Buttons.Add(new CarouselButton().ToLinkButton(text, url, order));
         }
-        
-        public void AddShareButton(int order = 0)
-        {
-            Buttons.Add(new CarouselButton().ToShareButton(order));
-        }
-
     }
 
     internal class CarouselButton : Button
@@ -86,14 +80,6 @@ namespace StandardBlipSDKHelperLibrary.Models
             Type = ButtonType.Link;
             return this;
         }
-        
-        internal CarouselButton ToShareButton(int order = 0)
-        {
-            Order = order;
-            Type = ButtonType.Share;
-            return this;
-        }
-
 
     }
 }
