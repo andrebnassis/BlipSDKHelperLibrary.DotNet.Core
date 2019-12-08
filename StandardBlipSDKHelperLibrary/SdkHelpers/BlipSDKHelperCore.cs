@@ -379,10 +379,6 @@ namespace StandardBlipSDKHelperLibrary.SdkHelpers
                 {
                     quickReplyJsonDoc.AddTextButton(buttons[i].Text, buttons[i].Value, buttons[i].ImageUrl);
                 }
-                else if (Models.ButtonType.Location.Equals(buttons[i].Type))
-                {
-                    quickReplyJsonDoc.AddLocationButton();
-                }
             }
 
             var jsonDict = new Dictionary<string, object>();

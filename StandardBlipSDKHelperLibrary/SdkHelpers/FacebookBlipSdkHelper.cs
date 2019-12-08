@@ -8,7 +8,7 @@ using Lime.Messaging.Contents;
 using StandardBlipSDKHelperLibrary.Interfaces;
 using Lime.Protocol;
 using StandardBlipSDKHelperLibrary.FacebookNativeModel;
-using RestSharp;
+//using RestSharp;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Take.Blip.Client;
@@ -113,64 +113,64 @@ namespace StandardBlipSDKHelperLibrary.SdkHelpers
             return (JValuePageAccessToken as JValue).Value.ToString();
         }
 
-        public async Task<IRestResponse> RegisterDomainToWhitelist(ISender sender, params string[] urls)
-        {
-            var pageAccessToken = await GetPageAccessToken(sender);
+        //public async Task<IRestResponse> RegisterDomainToWhitelist(ISender sender, params string[] urls)
+        //{
+        //    var pageAccessToken = await GetPageAccessToken(sender);
 
-            if (pageAccessToken.Trim().IsNullOrEmpty())
-            {
-                throw (new Exception("Could not get PageAccessToken"));
-            }
+        //    if (pageAccessToken.Trim().IsNullOrEmpty())
+        //    {
+        //        throw (new Exception("Could not get PageAccessToken"));
+        //    }
 
-            var client = new RestClient("https://graph.facebook.com/v2.6/me");
-            var request = new RestRequest("thread_settings?access_token={PageAccessToken}", Method.POST);
-            request.AddUrlSegment("PageAccessToken", pageAccessToken);
+        //    var client = new RestClient("https://graph.facebook.com/v2.6/me");
+        //    var request = new RestRequest("thread_settings?access_token={PageAccessToken}", Method.POST);
+        //    request.AddUrlSegment("PageAccessToken", pageAccessToken);
 
-            var UrlList = new List<string>();
-            foreach (var url in urls)
-            {
-                UrlList.Add(url);
-            }
-            var UrlListJson = JsonConvert.SerializeObject(UrlList);
+        //    var UrlList = new List<string>();
+        //    foreach (var url in urls)
+        //    {
+        //        UrlList.Add(url);
+        //    }
+        //    var UrlListJson = JsonConvert.SerializeObject(UrlList);
 
-            request.AddParameter("setting_type", "domain_whitelisting");
-            request.AddParameter("whitelisted_domains", UrlListJson);
-            request.AddParameter("domain_action_type", "add");
-            request.AddHeader("Content-Type", "application/json");
+        //    request.AddParameter("setting_type", "domain_whitelisting");
+        //    request.AddParameter("whitelisted_domains", UrlListJson);
+        //    request.AddParameter("domain_action_type", "add");
+        //    request.AddHeader("Content-Type", "application/json");
 
-            var result = await client.ExecuteTaskAsync(request);
+        //    var result = await client.ExecuteTaskAsync(request);
 
-            return result;
-        }
+        //    return result;
+        //}
 
-        public async Task<IRestResponse> RegisterDomainToWhitelist(ISender sender, List<string> urls)
-        {
-            var pageAccessToken = await GetPageAccessToken(sender);
+        //public async Task<IRestResponse> RegisterDomainToWhitelist(ISender sender, List<string> urls)
+        //{
+        //    var pageAccessToken = await GetPageAccessToken(sender);
 
-            if (pageAccessToken.Trim().IsNullOrEmpty())
-            {
-                throw (new Exception("Could not get PageAccessToken"));
-            }
+        //    if (pageAccessToken.Trim().IsNullOrEmpty())
+        //    {
+        //        throw (new Exception("Could not get PageAccessToken"));
+        //    }
 
-            var client = new RestClient("https://graph.facebook.com/v2.6/me");
-            var request = new RestRequest("thread_settings?access_token={PageAccessToken}", Method.POST);
-            request.AddUrlSegment("PageAccessToken", pageAccessToken);
+        //    var client = new RestClient("https://graph.facebook.com/v2.6/me");
+        //    var request = new RestRequest("thread_settings?access_token={PageAccessToken}", Method.POST);
+        //    request.AddUrlSegment("PageAccessToken", pageAccessToken);
 
-            var UrlList = new List<string>();
-            foreach (var url in urls)
-            {
-                UrlList.Add(url);
-            }
-            var UrlListJson = JsonConvert.SerializeObject(UrlList);
+        //    var UrlList = new List<string>();
+        //    foreach (var url in urls)
+        //    {
+        //        UrlList.Add(url);
+        //    }
+        //    var UrlListJson = JsonConvert.SerializeObject(UrlList);
 
-            request.AddParameter("setting_type", "domain_whitelisting");
-            request.AddParameter("whitelisted_domains", UrlListJson);
-            request.AddParameter("domain_action_type", "add");
-            request.AddHeader("Content-Type", "application/json");
+        //    request.AddParameter("setting_type", "domain_whitelisting");
+        //    request.AddParameter("whitelisted_domains", UrlListJson);
+        //    request.AddParameter("domain_action_type", "add");
+        //    request.AddHeader("Content-Type", "application/json");
 
-            var result = await client.ExecuteTaskAsync(request);
+        //    var result = await client.ExecuteTaskAsync(request);
 
-            return result;
-        }
+        //    return result;
+        //}
     }
 }

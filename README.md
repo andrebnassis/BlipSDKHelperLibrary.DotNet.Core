@@ -181,7 +181,8 @@ BLiPChat
 Text: Obligatory  
 \#Min Buttons: 1  
 \#Max Buttons: 11  
-PS: On BLiPChat Channel, if you add a Location Button Type on QuickReply, it will ignore the others text buttons and will show only the Location Button.  
+PS_1: On BLiPChat Channel, if you add a Location Button Type on QuickReply, it will ignore the others text buttons and will show only the Location Button.  
+PS2: On Facebook Messenger Channel, if you add Location Button Type on QuickReply, it will not be shown, due to it is deprecated (check Facebook Developers Documentation for more information).
 
 ### Example:
 

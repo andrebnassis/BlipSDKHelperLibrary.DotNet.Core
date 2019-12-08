@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using StandardBlipSDKHelperLibrary.Models;
 using Lime.Messaging.Contents;
 using Lime.Protocol;
-using RestSharp;
+//using RestSharp;
 using StandardBlipSDKHelperLibrary.Interfaces;
 using Take.Blip.Client;
 
@@ -22,7 +22,7 @@ namespace StandardBlipSDKHelperLibrary.SdkHelpers
     IVideoCreation,
     IWebLinkCreation
     {
-        Task<IRestResponse> RegisterDomainToWhitelist(ISender sender, params string[] urls);
-        Task<IRestResponse> RegisterDomainToWhitelist(ISender sender, List<string> urls);
+        //Task<IRestResponse> RegisterDomainToWhitelist(ISender sender, params string[] urls);
+        //Task<IRestResponse> RegisterDomainToWhitelist(ISender sender, List<string> urls);
     }
 }

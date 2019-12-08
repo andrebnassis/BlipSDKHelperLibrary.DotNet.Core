@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,7 @@ namespace StandardBlipSDKHelperLibrary.FacebookNativeModel
             {
 
             }
+            [JsonConverter(typeof(StringEnumConverter))]
             public FacebookNativeContentType content_type { get; set; }
             public string title { get; set; }
             public string payload { get; set; }
