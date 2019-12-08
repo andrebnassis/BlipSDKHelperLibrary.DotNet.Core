@@ -96,6 +96,7 @@ namespace StandardBlipSDKHelperLibrary.FacebookNativeModel
 
         internal class DefaultAction
         {
+            [JsonConverter(typeof(StringEnumConverter))]
             public FacebookNativeButtonType type { get; set; }
             public string url { get; set; }
             public bool messenger_extensions { get; set; }
