@@ -75,6 +75,8 @@ namespace StandardBlipSDKHelperLibrary.SdkHelpers
                             button.Order = j;
                             button.Label = new DocumentContainer();
                             button.Label.Value = GENERIC_CreateWebLinkDocument(buttons[j].Value, null, buttons[j].Text);
+                            button.Value = new DocumentContainer();
+                            button.Value.Value = GENERIC_CreateTextDocument(buttons[j].Value);
                             tmp_buttons[j] = button;
                         }
 
@@ -289,73 +291,6 @@ namespace StandardBlipSDKHelperLibrary.SdkHelpers
 
         //Messenger Special Implementations: Receipt, CallButton, List, QuickReply;
         #region Messenger
-        public static DocumentCollection MESSENGER_CreateCarouselDocument(CarouselModel carouselModel)
-        {
-
-            var carousel = new DocumentCollection();
-            //contents.
-            carousel.Items = new DocumentSelect[carouselModel.Cards.Count];
-            carousel.ItemType = DocumentSelect.MediaType;
-
-            var cards = carouselModel.Cards.OrderBy(c => c.Order).ToList();
-
-            //Para cada content existente.
-            for (int i = 0; i < cards.Count; i++)
-            {
-
-                var tmp = new DocumentSelect();
-                tmp.Header = new DocumentContainer();
-                tmp.Header.Value = new MediaLink();
-                (tmp.Header.Value as MediaLink).Title = cards[i].Title;
-                (tmp.Header.Value as MediaLink).Text = cards[i].Subtitle;
-
-                try
-                {
-                    (tmp.Header.Value as MediaLink).PreviewUri = new Uri(cards[i].UrlImage);
-                    (tmp.Header.Value as MediaLink).Uri = new Uri(cards[i].UrlImage);
-                }
-                catch { }
-
-                (tmp.Header.Value as MediaLink).Type = MediaType.Parse("image/*");
-
-                var buttons = cards[i].Buttons.OrderBy(c => c.Order).ToList();
-
-                DocumentSelectOption[] tmp_buttons = new DocumentSelectOption[buttons.Count()];
-                if (buttons.Any())
-                {
-                    for (int j = 0; j < buttons.Count(); j++)
-                    {
-
-                        if (buttons[j].Type == Models.ButtonType.Text)
-                        {
-                            DocumentSelectOption button = new DocumentSelectOption();
-                            button.Order = j;
-                            button.Label = new DocumentContainer();
-                            button.Label.Value = GENERIC_CreateTextDocument(buttons[j].Text);
-                            button.Value = new DocumentContainer();
-                            button.Value.Value = GENERIC_CreateTextDocument(buttons[j].Value);
-                            tmp_buttons[j] = button;
-                        }
-                        else if (buttons[j].Type == Models.ButtonType.Link)
-                        {
-                            DocumentSelectOption button = new DocumentSelectOption();
-                            button.Order = j;
-                            button.Label = new DocumentContainer();
-                            button.Label.Value = GENERIC_CreateWebLinkDocument(buttons[j].Value, null, buttons[j].Text);
-                            button.Value = new DocumentContainer();
-                            button.Value.Value = GENERIC_CreateTextDocument(buttons[j].Value);
-                            tmp_buttons[j] = button;
-                        }
-                    }
-
-                }
-                tmp.Options = tmp_buttons;
-
-                carousel.Items[i] = tmp;
-            }
-            return carousel;
-        }
-
         public static JsonDocument MESSENGER_CreateQuickReplyDocument(QuickReplyModel quickReplyModel)
         {
 

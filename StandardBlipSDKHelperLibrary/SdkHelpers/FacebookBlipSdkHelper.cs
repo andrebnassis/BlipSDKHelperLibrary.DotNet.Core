@@ -31,7 +31,7 @@ namespace StandardBlipSDKHelperLibrary.SdkHelpers
 
         public DocumentCollection CreateCarouselDocument(CarouselModel carouselModel)
         {
-            return BlipSDKHelperCore.MESSENGER_CreateCarouselDocument(carouselModel);
+            return BlipSDKHelperCore.GENERIC_CreateCarouselDocument(carouselModel);
         }
 
         public DocumentCollection CreateCollectionOfDocuments(GroupDocumentsModel content)
