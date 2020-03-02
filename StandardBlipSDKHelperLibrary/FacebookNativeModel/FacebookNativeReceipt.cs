@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +11,7 @@ namespace StandardBlipSDKHelperLibrary.FacebookNativeModel
 {
     internal class FacebookNativeReceipt
     {
+        [JsonConverter(typeof(StringEnumConverter))]
         public FacebookNativeElementType type { get; set; }
         public Payload payload { get; set; }
 
@@ -90,6 +93,7 @@ namespace StandardBlipSDKHelperLibrary.FacebookNativeModel
                 elements = new List<Element>();
             }
 
+            [JsonConverter(typeof(StringEnumConverter))]
             public FacebookNativeTemplateType template_type { get; set; }
             public string sharable { get; set; }
             public string recipient_name { get; set; }

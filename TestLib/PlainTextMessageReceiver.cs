@@ -172,26 +172,50 @@ namespace TestLib
             ////FACEBOOK
             //var document = _facebookDocumentService.CreateCarouselDocument(carousel);
 
-            var teste = await _facebookDocumentService.RegisterDomainToWhitelist(_sender, "https://www.youtube.com/");
+            //var teste = await _facebookDocumentService.RegisterDomainToWhitelist(_sender, "https://www.youtube.com/");
+            //var list = new ListModel();
+            //list.HighlightFirstItem();
+            //list.AddBottomTextButton("BottomButton Text", "BottomButtonValue");
+            //list.AddItem("Title1", "Subtitle1", "https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg", 1);
+            //list.AddItem("Title3", "Subtitle3", null, 3);
+            //list.AddItem("Title0", "Subtitle0", "https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg");
+            //list.GetItem(2).AddTextButton("ButtonText0", "ButtonValue0");
+            //list.AddItem("Title2", "Subtitle2", "", 2);
+            //list.GetItem(3).AddTextButton("ButtonText2", "ButtonValue2");
+            //list.GetItem(3).AddWebUrl("https://www.youtube.com/");
 
-            var list = new ListModel();
-            list.HighlightFirstItem();
-            list.AddBottomTextButton("BottomButton Text", "BottomButtonValue");
-            list.AddItem("Title1", "Subtitle1", "https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg", 1);
-            list.AddItem("Title3", "Subtitle3", null, 3);
-            list.AddItem("Title0", "Subtitle0", "https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg");
-            list.GetItem(2).AddTextButton("ButtonText0", "ButtonValue0");
-            list.AddItem("Title2", "Subtitle2", "", 2);
-            list.GetItem(3).AddTextButton("ButtonText2", "ButtonValue2");
-            list.GetItem(3).AddWebUrl("https://www.youtube.com/");
+            ////IMPORTANT(only for List Creation case): 
+            ////If it is first time that you are using GetItem.AddWebUrl method, dont forget to call RegisterDomainToWhitelist function, passing the Urls as parameters.
 
-            //IMPORTANT(only for List Creation case): 
-            //If it is first time that you are using GetItem.AddWebUrl method, dont forget to call RegisterDomainToWhitelist function, passing the Urls as parameters.
+            ////FACEBOOK
+            //var document = _facebookDocumentService.CreateListDocument(list);
+
+            var receipt = new ReceiptModel("BRL");
+
+            receipt.AddItem("Classic White T-Shirt0", "Single Item Price: 25", 25, 2, "http://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg");
+            receipt.GetItem(0).ChangeCurrency("USD"); //Optional
+            receipt.GetItem(0).RemoveFromSubtotalCalculus(); //Optional
+            receipt.AddItem("Classic White T-Shirt 2 ", "Single Item Price: 1", 1, 10, null);
+            receipt.AddItem("Classic White T-Shirt1", "Single Item Price: 25", 25, 2, "https://img.michaels.com/L6/3/IOGLO/873480063/212543238/10093626_r.jpg");
+
+            receipt.SetOrderedDate(DateTime.Now); //Optional: Default is DateTime.Now
+            receipt.SetPaymentMethod("Obligatory"); //Obligatory
+            receipt.SetShipInfo("Stephane Crozatier", "1 Hacker Way", "Menlo Park", 94025, "CA", "US", "Optional second address street"); //Obligatory
+
+            receipt.SetOrderId(1); //Optional: default is Random Guid.
+            receipt.SetMerchantName("Company Name"); //Optional: Default is Bots Name
+
+            receipt.SetShippingCost(20); //Optional
+            receipt.SetTotalTaxCost(30); //Optional
+
+
+            receipt.AddAdditionalNotes("Discount1", -1, false); //Optional
+            receipt.AddAdditionalNotes("Discount2", -2); //Optional
+            receipt.AddAdditionalNotes("Discount3", -3, true); //Optional
+            receipt.AddAdditionalNotes("Some other stuff", 180); //Optional
 
             //FACEBOOK
-            var document = _facebookDocumentService.CreateListDocument(list);
-
-
+            var document = _facebookDocumentService.CreateReceiptDocument(receipt);
 
             //Trace.TraceInformation($"From: {message.From} \tContent: {message.Content}");
             await _sender.SendMessageAsync(document, message.From, cancellationToken);
