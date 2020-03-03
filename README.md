@@ -11,6 +11,13 @@ PM> Install-Package BlipSDKHelperLibrary
 
 ---------------
 
+If you want to contribute with this library, here are some features that you could develop:
+
+ - Messenger component for airlines (https://developers.facebook.com/docs/messenger-platform/send-messages/template/airline)
+ - File component for BlipChat and Messenger
+
+---------------
+
 This library is implemented for the following Messaging Channels:
 
  - Facebook Messenger  
@@ -91,11 +98,13 @@ Result:
 
 ### Channels:  
 Facebook Messenger  
+BLiPChat
 
 ### Requirements:  
 UrlVideo: Obligatory  
 Title: Optional  
 Subtitle: Optional
+PS: On BLiPChat Channel, Title and Subtitle will not be shown.
 
 ### Example:
 
@@ -103,7 +112,9 @@ Code:
  ```C#
 	//FACEBOOK
 	var document = _facebookDocumentService.CreateVideoDocument("https://dl.dropboxusercontent.com/s/jxy3sspxbl6ilan/John%20Lennon%20-%20Imagine.mp4", "OptionalTitle", "OptionalSubtitle");
-	
+	//BLIPCHAT
+	var document = _blipchatDocumentService.CreateVideoDocument("https://dl.dropboxusercontent.com/s/jxy3sspxbl6ilan/John%20Lennon%20-%20Imagine.mp4", "OptionalTitle", "OptionalSubtitle");
+
 	await _sender.SendMessageAsync(document, message.From, cancellationToken);
 ```
 

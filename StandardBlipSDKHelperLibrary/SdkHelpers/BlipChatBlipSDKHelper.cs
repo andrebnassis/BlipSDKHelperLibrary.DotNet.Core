@@ -50,6 +50,11 @@ namespace StandardBlipSDKHelperLibrary.SdkHelpers
             return BlipSDKHelperCore.GENERIC_CreateTextDocument(text);
         }
 
+        public MediaLink CreateVideoDocument(string urlVideo, string title = null, string subtitle = null)
+        {
+            return BlipSDKHelperCore.GENERIC_CreateVideoDocument(urlVideo, title, subtitle);
+        }
+
         public WebLink CreateWebLinkDocument(string url, string previewUrl = null, string title = null, string subtitle = null)
         {
             return BlipSDKHelperCore.GENERIC_CreateWebLinkDocument(url, previewUrl, title, subtitle);
