@@ -3,7 +3,7 @@
     <metadata>
         <!-- Required elements-->
         <id>BlipSDKHelperLibrary.DotNet.Core</id>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
         <description>A non-official library to help Blip users to create Messenger and BlipChat components.</description>
         <authors>andrebnassis</authors>
         <projectUrl>https://dev.azure.com/andrebnassis/_git/BlipSDKHelperLibrary</projectUrl>
