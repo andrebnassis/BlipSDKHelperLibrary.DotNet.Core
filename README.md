@@ -15,7 +15,8 @@ If you want to contribute with this library, here are some features that you cou
 
  - Messenger component for airlines (https://developers.facebook.com/docs/messenger-platform/send-messages/template/airline)
  - File component for BlipChat and Messenger
-
+ - Check other channels components that are not developed in this library and develop (http://help.blip.ai/contenttypes/)
+ 
 ---------------
 
 This library is implemented for the following Messaging Channels:
