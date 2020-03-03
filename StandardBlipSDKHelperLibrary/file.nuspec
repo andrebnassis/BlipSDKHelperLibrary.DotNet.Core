@@ -3,16 +3,18 @@
     <metadata>
         <!-- Required elements-->
         <id>BlipSDKHelperLibrary.DotNet.Core</id>
-        <version>1.0.3</version>
-        <description>A non-official library to help Blip users to create Messenger and BlipChat components.</description>
+        <version>1.0.4</version>
+        <description>A non-official .net standard 2.0 library to help Blip users to create Messenger and BlipChat components.</description>
         <authors>andrebnassis</authors>
         <projectUrl>https://dev.azure.com/andrebnassis/_git/BlipSDKHelperLibrary</projectUrl>
-        <releaseNotes>dotnet Standard version of BlipSdkHelperLibrary</releaseNotes>
+        <releaseNotes>dotnet Standard 2.0 version of BlipSdkHelperLibrary</releaseNotes>
         <!-- Optional elements -->
       <dependencies>
-        <dependency id="Newtonsoft.Json" version="12.*" />
-        <dependency id="Take.Blip.Client" version="0.5.285" />
-        <dependency id="Take.Blip.Client.Console" version="0.5.285" />
+        <dependency id="Lime.Messaging" version="0.8.53-beta" />
+        <dependency id="Lime.Protocol" version="0.8.53-beta" />
+        <dependency id="Newtonsoft.Json" version="12.0.3" />
+        <dependency id="RestEase" version="1.4.10" />
+        <dependency id="Take.Blip.Client" version="0.5.186" />
       </dependencies>
         <!-- ... -->
     </metadata>

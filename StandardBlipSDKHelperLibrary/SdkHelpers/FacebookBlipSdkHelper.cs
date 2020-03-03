@@ -2,15 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Lime.Messaging.Contents;
 using StandardBlipSDKHelperLibrary.Interfaces;
 using Lime.Protocol;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Take.Blip.Client;
-using Lime.Protocol.Network;
 using System.Threading;
 using RestEase;
 

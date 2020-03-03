@@ -1,9 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using StandardBlipSDKHelperLibrary.Models;
-using Lime.Messaging.Contents;
-using Lime.Protocol;
-//using RestSharp;
 using StandardBlipSDKHelperLibrary.Interfaces;
 using Take.Blip.Client;
 

@@ -37,7 +37,7 @@ namespace TestLib
             ////BLIPCHAT
             //var document = _blipchatDocumentService.CreateImageDocument("https://dl.dropboxusercontent.com/s/99sw7vu788suww1/imagineFloor.jpg", "https://dl.dropboxusercontent.com/s/0u34yn7pj29ak1v/imagineFloorPreview.jpg", "OptionalTitle", "OptionalSubtitle");
 
-            var document = _blipchatDocumentService.CreateVideoDocument("https://dl.dropboxusercontent.com/s/jxy3sspxbl6ilan/John%20Lennon%20-%20Imagine.mp4", "OptionalTitle", "OptionalSubtitle");
+            //var document = _blipchatDocumentService.CreateVideoDocument("https://dl.dropboxusercontent.com/s/jxy3sspxbl6ilan/John%20Lennon%20-%20Imagine.mp4", "OptionalTitle", "OptionalSubtitle");
 
             ////BLIPCHAT
             //var document = _blipchatDocumentService.CreateWebLinkDocument("https://dl.dropboxusercontent.com/s/99sw7vu788suww1/imagineFloor.jpg", "https://dl.dropboxusercontent.com/s/0u34yn7pj29ak1v/imagineFloorPreview.jpg", "OptionalTitle", "OptionalSubtitle");
@@ -192,33 +192,34 @@ namespace TestLib
             ////FACEBOOK
             //var document = _facebookDocumentService.CreateListDocument(list);
 
-            //var receipt = new ReceiptModel("BRL");
+            var receipt = new ReceiptModel("BRL");
 
-            //receipt.AddItem("Classic White T-Shirt0", "Single Item Price: 25", 25, 2, "http://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg");
-            //receipt.GetItem(0).ChangeCurrency("USD"); //Optional
-            //receipt.GetItem(0).RemoveFromSubtotalCalculus(); //Optional
-            //receipt.AddItem("Classic White T-Shirt 2 ", "Single Item Price: 1", 1, 10, null);
-            //receipt.AddItem("Classic White T-Shirt1", "Single Item Price: 25", 25, 2, "https://img.michaels.com/L6/3/IOGLO/873480063/212543238/10093626_r.jpg");
+            receipt.AddItem("Classic White T-Shirt0", "Single Item Price: 25", 25, 2, "http://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg");
+            receipt.GetItem(0).ChangeCurrency("USD"); //Optional
+            receipt.GetItem(0).RemoveFromSubtotalCalculus(); //Optional
+            receipt.AddItem("Classic White T-Shirt 2 ", "Single Item Price: 1", 1, 10, null);
+            receipt.AddItem("Classic White T-Shirt1", "Single Item Price: 25", 25, 2, "https://img.michaels.com/L6/3/IOGLO/873480063/212543238/10093626_r.jpg");
 
-            //receipt.SetOrderedDate(DateTime.Now); //Optional: Default is DateTime.Now
-            //receipt.SetPaymentMethod("Obligatory"); //Obligatory
-            //receipt.SetShipInfo("Stephane Crozatier", "1 Hacker Way", "Menlo Park", 94025, "CA", "US", "Optional second address street"); //Obligatory
+            receipt.SetOrderedDate(DateTime.Now); //Optional: Default is DateTime.Now
+            receipt.SetPaymentMethod("Obligatory"); //Obligatory
+            receipt.SetShipInfo("Stephane Crozatier", "1 Hacker Way", "Menlo Park", 94025, "CA", "US", "Optional second address street"); //Obligatory
 
-            //receipt.SetOrderId(1); //Optional: default is Random Guid.
-            //receipt.SetMerchantName("Company Name"); //Optional: Default is Bots Name
+            receipt.SetOrderId(1); //Optional: default is Random Guid.
+            receipt.SetMerchantName("Company Name"); //Optional: Default is Bots Name
 
-            //receipt.SetShippingCost(20); //Optional
-            //receipt.SetTotalTaxCost(30); //Optional
+            receipt.SetShippingCost(20); //Optional
+            receipt.SetTotalTaxCost(30); //Optional
 
 
-            //receipt.AddAdditionalNotes("Discount1", -1, false); //Optional
-            //receipt.AddAdditionalNotes("Discount2", -2); //Optional
-            //receipt.AddAdditionalNotes("Discount3", -3, true); //Optional
-            //receipt.AddAdditionalNotes("Some other stuff", 180); //Optional
+            receipt.AddAdditionalNotes("Discount1", -1, false); //Optional
+            receipt.AddAdditionalNotes("Discount2", -2); //Optional
+            receipt.AddAdditionalNotes("Discount3", -3, true); //Optional
+            receipt.AddAdditionalNotes("Some other stuff", 180); //Optional
 
-            ////FACEBOOK
-            //var document = _facebookDocumentService.CreateReceiptDocument(receipt);
+            //FACEBOOK
+            var document = _facebookDocumentService.CreateReceiptDocument(receipt);
 
+            //FACEBOOK
             //var document = _facebookDocumentService.CreateCallButtonDocument("Initial Text", "Call", "+5531999999999");
 
             //Trace.TraceInformation($"From: {message.From} \tContent: {message.Content}");
